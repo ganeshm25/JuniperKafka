@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value="/juniper/kafka/ui")
+@RequestMapping(value="/juniper/kafkaUI")
 public class TestKafkaConnectionController {
 
 	private static final int ADMIN_CLIENT_TIMEOUT_MS = 5000;
