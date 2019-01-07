@@ -2,10 +2,8 @@ package com.juniper.kafka.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.juniper.kafka.dto.ConsumerKafkaUIDTO;
-import com.juniper.kafka.dto.KafkaTopicUIDTO;
 import com.juniper.kafka.dao.KafkaUIDAO;
-import com.juniper.kafka.dto.KafkaUIDto;
+import com.juniper.kafka.dto.KafkaUIDTO;
 
 public class KafkaUIService {
 
@@ -13,17 +11,17 @@ public class KafkaUIService {
 	KafkaUIDAO kafkaUIDAO;
 
 	
-	public String saveProducerDetials(KafkaUIDto kafkaDTO) {
+	public String saveProducerDetials(KafkaUIDTO kafkaDTO) {
 		kafkaUIDAO.saveUIProducer(kafkaDTO);
 		return "success";
 	}
 	
-	public String saveConsumerDetails(ConsumerKafkaUIDTO consumerkafkaUIDTO) {
+	public String saveConsumerDetails(KafkaUIDTO consumerkafkaUIDTO) {
 		kafkaUIDAO.saveUIConsumer(consumerkafkaUIDTO);
 		return "success";
 	}
 	
-	public String saveTopicDetails(KafkaTopicUIDTO kafkatopicUIDTO) {
+	public String saveTopicDetails(KafkaUIDTO kafkatopicUIDTO) {
 		kafkaUIDAO.saveUITopic(kafkatopicUIDTO);
 		return "success";
 	}

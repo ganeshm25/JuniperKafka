@@ -1,18 +1,14 @@
 package com.juniper.kafka.dao;
 
-
-
-import com.juniper.kafka.dto.ConsumerKafkaUIDTO;
-import com.juniper.kafka.dto.KafkaTopicUIDTO;
-import com.juniper.kafka.dto.KafkaUIDto;
+import com.juniper.kafka.dto.KafkaUIDTO;
 
 
 public interface KafkaUIDAO {
 	
-	public String saveUIProducer(KafkaUIDto kafkaUIDto);
+	public String saveUIProducer(KafkaUIDTO kafkaUIDto);
 	
-	public String saveUIConsumer(ConsumerKafkaUIDTO consumerkafkaUIDTO);
+	public String saveUIConsumer(KafkaUIDTO kafkaUIDto);
 	
-	public String saveUITopic(KafkaTopicUIDTO consumerkafkaUIDTO);
+	public String saveUITopic(KafkaUIDTO kafkaUIDto);
 
 }

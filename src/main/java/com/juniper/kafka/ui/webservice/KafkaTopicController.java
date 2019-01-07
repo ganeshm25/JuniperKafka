@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.juniper.kafka.dto.KafkaTopicDTO;
-import com.juniper.kafka.dto.KafkaTopicUIDTO;
+import com.juniper.kafka.dto.KafkaUIDTO;
+import com.juniper.kafka.dto.RequestDTO;
 import com.juniper.kafka.services.KafkaUIService;
 
 @RestController
@@ -20,9 +20,9 @@ public class KafkaTopicController {
 	
 	@RequestMapping(value = "/kafkaTopic", method = RequestMethod.POST, consumes = "application/json")
 	@ResponseBody
-	public String kafkaTopicCreation(@RequestBody KafkaTopicDTO requestDto){
+	public String kafkaTopicCreation(@RequestBody RequestDTO requestDto){
 		
-		KafkaTopicUIDTO kafkaUI = new KafkaTopicUIDTO();
+		KafkaUIDTO kafkaUI = new KafkaUIDTO();
 		
 		try {
 				kafkaUI.setHostName(requestDto.getBody().get("data").get("hostName"));

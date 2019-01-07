@@ -3,8 +3,8 @@ package com.juniper.kafka.ui.webservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.juniper.kafka.dto.KafkaUIDto;
-import com.juniper.kafka.dto.RequestDto;
+import com.juniper.kafka.dto.KafkaUIDTO;
+import com.juniper.kafka.dto.RequestDTO;
 import com.juniper.kafka.services.KafkaUIService;
 
 @RestController
@@ -16,9 +16,9 @@ public class KafkaProducerController {
 	
 	@RequestMapping(value = "/kafkaProducer", method = RequestMethod.POST, consumes = "application/json")
 	@ResponseBody
-	public String kafkaProducerCreation(@RequestBody RequestDto requestDto){
+	public String kafkaProducerCreation(@RequestBody RequestDTO requestDto){
 		
-		KafkaUIDto kafkaUI = new KafkaUIDto();
+		KafkaUIDTO kafkaUI = new KafkaUIDTO();
 		
 		try {
 				kafkaUI.setHostName(requestDto.getBody().get("data").get("hostName"));

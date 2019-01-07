@@ -2,7 +2,7 @@ package com.juniper.kafka.dto;
 
 import java.util.Map;
 
-public class RequestDto {
+public class RequestDTO {
 	
 
 	private Map<String, String> header;

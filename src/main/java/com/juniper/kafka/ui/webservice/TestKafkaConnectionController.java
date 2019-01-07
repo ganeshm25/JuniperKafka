@@ -5,10 +5,12 @@ import java.util.concurrent.ExecutionException;
 
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.ListTopicsOptions;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import com.juniper.kafka.dto.RequestDTO;
 
 @RestController
 @RequestMapping(value="/juniper/kafkaUI")
@@ -16,14 +18,15 @@ public class TestKafkaConnectionController {
 
 	private static final int ADMIN_CLIENT_TIMEOUT_MS = 5000;
 	
-	@GetMapping(value="/validateKafka")
-	public String validateKafkaOnOff(@RequestParam("host")String host,@RequestParam("port")String port){
+	@RequestMapping(value = "/testKafkaCon", method = RequestMethod.POST, consumes = "application/json")
+	@ResponseBody
+	public String validateKafkaOnOff(@RequestBody RequestDTO requestDto){
 		
 		String kafka_is_on = "Yes";
 		
 		Properties kafka = new Properties();
 		
-		kafka.put("bootstrap.servers", "scheduler-host.us-east1-b.c.juniperonprem.internal:9092");
+		kafka.put("bootstrap.servers", requestDto.getBody().get("data").get("hostName")+":"+requestDto.getBody().get("data").get("port"));
 		
 		try (AdminClient client = AdminClient.create(kafka)) {
 	            

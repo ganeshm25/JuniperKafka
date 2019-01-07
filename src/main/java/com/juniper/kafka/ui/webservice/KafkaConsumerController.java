@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.juniper.kafka.dto.ConsumerDTO;
-import com.juniper.kafka.dto.ConsumerKafkaUIDTO;
+import com.juniper.kafka.dto.KafkaUIDTO;
+import com.juniper.kafka.dto.RequestDTO;
 import com.juniper.kafka.services.KafkaUIService;
 
 @RestController
@@ -20,9 +20,9 @@ public class KafkaConsumerController {
 	
 	@RequestMapping(value = "/kafkaConsumer", method = RequestMethod.POST, consumes = "application/json")
 	@ResponseBody
-	public String kafkaConsumerCreation(@RequestBody ConsumerDTO requestDto){
+	public String kafkaConsumerCreation(@RequestBody RequestDTO requestDto){
 		
-		ConsumerKafkaUIDTO kafkaUI = new ConsumerKafkaUIDTO();
+		KafkaUIDTO kafkaUI = new KafkaUIDTO();
 		
 		try {
 				kafkaUI.setHostName(requestDto.getBody().get("data").get("hostName"));
