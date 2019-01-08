@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.juniper.kafka.dto.RequestDTO;
 
 @RestController
@@ -18,28 +19,33 @@ public class TestKafkaConnectionController {
 
 	private static final int ADMIN_CLIENT_TIMEOUT_MS = 5000;
 	
-	@RequestMapping(value = "/testKafkaCon", method = RequestMethod.POST, consumes = "application/json")
+	
+	/*
+	 * 
+	 * Expected JSON Input is blow
+	 * {"header":{},"body":{"data":{"projects":"","project":"","user":"","ssl":"","cluster_name":"test","zookeeper_host_name":"sgdus.sjds.sdsa","zookeeper_knox_port":"9080","user_name":"hi","password":"hi","system":"HUB"}}}
+	 * 
+	 */
+	@RequestMapping(value = "/testKafkaCon", method = { RequestMethod.GET, RequestMethod.POST}, consumes = "application/json")
 	@ResponseBody
 	public String validateKafkaOnOff(@RequestBody RequestDTO requestDto){
-		
-		String kafka_is_on = "Yes";
-		
+		System.out.println("inside service.....");
+		String hostPort = requestDto.getBody().get("data").get("zookeeper_host_name")+":"+requestDto.getBody().get("data").get("zookeeper_knox_port");
+		String kafka_is_on = "Congrats!! Given Host "+hostPort+" available.";
 		Properties kafka = new Properties();
-		
-		kafka.put("bootstrap.servers", requestDto.getBody().get("data").get("hostName")+":"+requestDto.getBody().get("data").get("port"));
-		
+		kafka.put("bootstrap.servers", hostPort);
 		try (AdminClient client = AdminClient.create(kafka)) {
 	            
 			try {
 					client.listTopics(new ListTopicsOptions().timeoutMs(ADMIN_CLIENT_TIMEOUT_MS)).listings().get();
 				} catch (InterruptedException e) {
 					System.out.println("Kafka is not available, timed out after {} ms"+ ADMIN_CLIENT_TIMEOUT_MS);
-		            kafka_is_on = "No";
+		            kafka_is_on = "Sorry!! Given Host "+hostPort+" not available. Kindly contact admin or try other host.";
 		            return kafka_is_on;
 				}
 	        } catch (ExecutionException ex) {
 	            System.out.println("Kafka is not available, timed out after {} ms"+ ADMIN_CLIENT_TIMEOUT_MS);
-	            kafka_is_on = "No";
+	            kafka_is_on = "Given Host "+hostPort+" not available. Kindly contact admin or try other host";
 	            return kafka_is_on;
 	        }
 		return kafka_is_on;

@@ -14,18 +14,18 @@ public class KafkaProducerController {
 	@Autowired
 	private KafkaUIService kafkaUIService;
 	
-	@RequestMapping(value = "/kafkaProducer", method = RequestMethod.POST, consumes = "application/json")
+	
+	@RequestMapping(value = "/kafkaProducer", method = { RequestMethod.GET, RequestMethod.POST}, consumes = "application/json")
 	@ResponseBody
 	public String kafkaProducerCreation(@RequestBody RequestDTO requestDto){
 		
 		KafkaUIDTO kafkaUI = new KafkaUIDTO();
 		
 		try {
-				kafkaUI.setHostName(requestDto.getBody().get("data").get("hostName"));
-				kafkaUI.setPort(requestDto.getBody().get("data").get("port"));
-				kafkaUI.setTopicName(requestDto.getBody().get("data").get("topicName"));
-				kafkaUI.setProducerName(requestDto.getBody().get("data").get("producerName"));
-				
+				kafkaUI.setHostName(requestDto.getBody().get("data").get("cluster_name"));
+				kafkaUI.setProducerName(requestDto.getBody().get("data").get("producer_name"));
+				kafkaUI.setTopicName(requestDto.getBody().get("data").get("kafka_topic"));
+				kafkaUI.setClusterName(requestDto.getBody().get("data").get("cluster_name"));
 				kafkaUIService.saveProducerDetials(kafkaUI);
 				
 	        } catch (Exception ex) {

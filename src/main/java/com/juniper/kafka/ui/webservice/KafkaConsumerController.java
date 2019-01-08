@@ -1,6 +1,7 @@
 package com.juniper.kafka.ui.webservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,20 +13,21 @@ import com.juniper.kafka.dto.RequestDTO;
 import com.juniper.kafka.services.KafkaUIService;
 
 @RestController
-@RequestMapping(value="/juniper/kafkaUI")
+@CrossOrigin
 public class KafkaConsumerController {
 
 	@Autowired
 	private KafkaUIService kafkaUIService;
 	
-	@RequestMapping(value = "/kafkaConsumer", method = RequestMethod.POST, consumes = "application/json")
+	
+	@RequestMapping(value = "/kafkaConsumer", method = { RequestMethod.GET, RequestMethod.POST}, consumes = "application/json")
 	@ResponseBody
 	public String kafkaConsumerCreation(@RequestBody RequestDTO requestDto){
 		
 		KafkaUIDTO kafkaUI = new KafkaUIDTO();
 		
 		try {
-				kafkaUI.setHostName(requestDto.getBody().get("data").get("hostName"));
+				kafkaUI.setHostName(requestDto.getBody().get("data").get("cluster_name"));
 				kafkaUI.setPort(requestDto.getBody().get("data").get("port"));
 				kafkaUI.setTopicName(requestDto.getBody().get("data").get("topicName"));
 				kafkaUI.setConsumerName(requestDto.getBody().get("data").get("consumerName"));

@@ -1,29 +1,19 @@
 package com.juniper.kafka.dto;
 
-import java.util.Map;
-
 public class KafkaUIDTO {
 	
-	private Map<String, String> header;
-	private Map<String, Map<String, String>> body;
+	
 	private String hostName;
 	private String port;
 	private String topicName;
 	private String consumerName;
 	private String producerName;
+	private int replicationFactor;
+	private int partitionCount;
+	private String clusterName;
 	
-	public Map<String, String> getHeader() {
-		return header;
-	}
-	public void setHeader(Map<String, String> header) {
-		this.header = header;
-	}
-	public Map<String, Map<String, String>> getBody() {
-		return body;
-	}
-	public void setBody(Map<String, Map<String, String>> body) {
-		this.body = body;
-	}
+	
+	
 	public String getHostName() {
 		return hostName;
 	}
@@ -54,8 +44,25 @@ public class KafkaUIDTO {
 	public void setProducerName(String producerName) {
 		this.producerName = producerName;
 	}
+	public int getReplicationFactor() {
+		return replicationFactor;
+	}
+	public void setReplicationFactor(int replicationFactor) {
+		this.replicationFactor = replicationFactor;
+	}
+	public int getPartitionCount() {
+		return partitionCount;
+	}
+	public void setPartitionCount(int partitionCount) {
+		this.partitionCount = partitionCount;
+	}
+	public String getClusterName() {
+		return clusterName;
+	}
+	public void setClusterName(String clusterName) {
+		this.clusterName = clusterName;
+	}
 	
 	
-
   
 }
