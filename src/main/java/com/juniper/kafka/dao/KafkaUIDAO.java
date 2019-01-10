@@ -5,6 +5,8 @@ import com.juniper.kafka.dto.KafkaUIDTO;
 
 public interface KafkaUIDAO {
 	
+	public String onBoardKafka(KafkaUIDTO kafkaUIDto);
+	
 	public String saveUIProducer(KafkaUIDTO kafkaUIDto);
 	
 	public String saveUIConsumer(KafkaUIDTO kafkaUIDto);

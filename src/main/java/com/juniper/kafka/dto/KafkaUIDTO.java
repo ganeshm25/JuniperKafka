@@ -11,8 +11,8 @@ public class KafkaUIDTO {
 	private int replicationFactor;
 	private int partitionCount;
 	private String clusterName;
-	
-	
+	private String userName;
+	private String password;
 	
 	public String getHostName() {
 		return hostName;
@@ -61,6 +61,18 @@ public class KafkaUIDTO {
 	}
 	public void setClusterName(String clusterName) {
 		this.clusterName = clusterName;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

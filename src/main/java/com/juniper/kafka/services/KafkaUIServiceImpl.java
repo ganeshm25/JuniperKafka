@@ -27,4 +27,10 @@ public class KafkaUIServiceImpl implements KafkaUIService {
 		kafkaUIDAO.saveUITopic(kafkatopicUIDTO);
 		return "success";
 	}
+
+	@Override
+	public String onBoardKafka(KafkaUIDTO kafkatopicUIDTO) {
+		kafkaUIDAO.onBoardKafka(kafkatopicUIDTO);
+		return "success";
+	}
 }

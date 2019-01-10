@@ -18,17 +18,14 @@ public class KafkaTopicController {
 	@Autowired
 	private KafkaUIService kafkaUIService;
 	
-	@RequestMapping(value = "/kafkaTopic", method = RequestMethod.POST, consumes = "application/json")
+	@RequestMapping(value = "/kafkaTopic", method = { RequestMethod.GET, RequestMethod.POST}, consumes = "application/json")
 	@ResponseBody
 	public String kafkaTopicCreation(@RequestBody RequestDTO requestDto){
 		
 		KafkaUIDTO kafkaUI = new KafkaUIDTO();
 		
 		try {
-				kafkaUI.setHostName(requestDto.getBody().get("data").get("hostName"));
-				kafkaUI.setPort(requestDto.getBody().get("data").get("port"));
-				kafkaUI.setTopicName(requestDto.getBody().get("data").get("topicName"));
-								
+				kafkaUI.setTopicName(requestDto.getBody().get("data").get("kafka_topic"));
 				kafkaUIService.saveTopicDetails(kafkaUI);
 				
 	        } catch (Exception ex) {
