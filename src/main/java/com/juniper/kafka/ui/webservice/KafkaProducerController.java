@@ -22,10 +22,13 @@ public class KafkaProducerController {
 		KafkaUIDTO kafkaUI = new KafkaUIDTO();
 		
 		try {
-				kafkaUI.setHostName(requestDto.getBody().get("data").get("cluster_name"));
 				kafkaUI.setProducerName(requestDto.getBody().get("data").get("producer_name"));
-				kafkaUI.setTopicName(requestDto.getBody().get("data").get("kafka_topic"));
-				kafkaUI.setClusterName(requestDto.getBody().get("data").get("cluster_name"));
+				kafkaUI.setTopicID(Integer.parseInt(requestDto.getBody().get("data").get("topic")));
+				kafkaUI.setClusterID(Integer.parseInt(requestDto.getBody().get("data").get("cluster")));
+				kafkaUI.setTargetType(requestDto.getBody().get("data").get("targetType"));
+				kafkaUI.setFileName(requestDto.getBody().get("data").get("linux_file_pattern"));
+				kafkaUI.setFilePath(requestDto.getBody().get("data").get("linux_file_path"));
+				kafkaUI.setSourceID(Integer.parseInt(requestDto.getBody().get("data").get("targetSystem")));
 				kafkaUIService.saveProducerDetials(kafkaUI);
 				
 	        } catch (Exception ex) {

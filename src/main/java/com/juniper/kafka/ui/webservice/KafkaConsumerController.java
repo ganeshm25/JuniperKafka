@@ -1,7 +1,6 @@
 package com.juniper.kafka.ui.webservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,7 +12,7 @@ import com.juniper.kafka.dto.RequestDTO;
 import com.juniper.kafka.services.KafkaUIService;
 
 @RestController
-@CrossOrigin
+@RequestMapping(value="/juniper/kafkaUI")
 public class KafkaConsumerController {
 
 	@Autowired
@@ -27,11 +26,13 @@ public class KafkaConsumerController {
 		KafkaUIDTO kafkaUI = new KafkaUIDTO();
 		
 		try {
-				kafkaUI.setHostName(requestDto.getBody().get("data").get("cluster_name"));
-				kafkaUI.setPort(requestDto.getBody().get("data").get("port"));
-				kafkaUI.setTopicName(requestDto.getBody().get("data").get("topicName"));
-				kafkaUI.setConsumerName(requestDto.getBody().get("data").get("consumerName"));
-				//kafkaUI.setConsumerName(requestDto.getBody().get("data").get("noConsumer"));
+				kafkaUI.setConsumerName(requestDto.getBody().get("data").get("consumer_name"));
+				kafkaUI.setTopicID(Integer.parseInt(requestDto.getBody().get("data").get("topic")));
+				kafkaUI.setClusterID(Integer.parseInt(requestDto.getBody().get("data").get("cluster")));
+				kafkaUI.setTargetType(requestDto.getBody().get("data").get("sourceType"));
+				kafkaUI.setFileName(requestDto.getBody().get("data").get("linux_file_pattern"));
+				kafkaUI.setFilePath(requestDto.getBody().get("data").get("linux_file_path"));
+				kafkaUI.setSourceID(Integer.parseInt(requestDto.getBody().get("data").get("targetSystem")));
 				
 				kafkaUIService.saveConsumerDetails(kafkaUI);
 				

@@ -13,6 +13,16 @@ public class KafkaUIDTO {
 	private String clusterName;
 	private String userName;
 	private String password;
+	private String purpose;
+	private int sourceID;
+	private int targetID;
+	private int clusterID;
+	private int topicID;
+	private String targetType;
+	private String filePath;
+	private String fileName;
+	private String createdBy;
+	private String updatedBy;
 	
 	public String getHostName() {
 		return hostName;
@@ -74,6 +84,67 @@ public class KafkaUIDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getPurpose() {
+		return purpose;
+	}
+	public void setPurpose(String purpose) {
+		this.purpose = purpose;
+	}
+	public int getSourceID() {
+		return sourceID;
+	}
+	public void setSourceID(int sourceID) {
+		this.sourceID = sourceID;
+	}
+	public int getTargetID() {
+		return targetID;
+	}
+	public void setTargetID(int targetID) {
+		this.targetID = targetID;
+	}
+	public int getClusterID() {
+		return clusterID;
+	}
+	public void setClusterID(int clusterID) {
+		this.clusterID = clusterID;
+	}
+	public int getTopicID() {
+		return topicID;
+	}
+	public void setTopicID(int topicID) {
+		this.topicID = topicID;
+	}
+	public String getTargetType() {
+		return targetType;
+	}
+	public void setTargetType(String targetType) {
+		this.targetType = targetType;
+	}
+	public String getFilePath() {
+		return filePath;
+	}
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+	
 	
 	
   

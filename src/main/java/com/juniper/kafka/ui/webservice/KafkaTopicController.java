@@ -26,6 +26,7 @@ public class KafkaTopicController {
 		
 		try {
 				kafkaUI.setTopicName(requestDto.getBody().get("data").get("kafka_topic"));
+				kafkaUI.setPurpose(requestDto.getBody().get("data").get("purpose"));
 				kafkaUIService.saveTopicDetails(kafkaUI);
 				
 	        } catch (Exception ex) {
