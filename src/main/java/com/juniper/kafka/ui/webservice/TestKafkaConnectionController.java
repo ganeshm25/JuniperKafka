@@ -1,7 +1,10 @@
+
 package com.juniper.kafka.ui.webservice;
 
 import java.util.Properties;
 
+import org.apache.kafka.clients.admin.AdminClient;
+import org.apache.kafka.clients.admin.ListTopicsOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.juniper.kafka.dto.KafkaUIDTO;
 import com.juniper.kafka.dto.RequestDTO;
 import com.juniper.kafka.services.KafkaUIService;
+
+
 
 @RestController
 @RequestMapping(value="/juniper/kafkaUI")
@@ -35,9 +40,9 @@ public class TestKafkaConnectionController {
 		String kafka_is_on = "Congrats!! Given Host "+hostPort+" available.";
 		Properties kafka = new Properties();
 		kafka.put("bootstrap.servers", hostPort);
-	//	try (AdminClient client = AdminClient.create(kafka)) {
+	try (AdminClient client = AdminClient.create(kafka)) {
 			try {
-					//client.listTopics(new ListTopicsOptions().timeoutMs(ADMIN_CLIENT_TIMEOUT_MS)).listings().get();
+					client.listTopics(new ListTopicsOptions().timeoutMs(ADMIN_CLIENT_TIMEOUT_MS)).listings().get();
 					
 					KafkaUIDTO kafkaUI = new KafkaUIDTO();
 					kafkaUI.setClusterName(requestDto.getBody().get("data").get("cluster_name"));
@@ -48,11 +53,11 @@ public class TestKafkaConnectionController {
 					
 					kafkaUIService.onBoardKafka(kafkaUI);
 					
-				/*} catch (InterruptedException e) {
+				} catch (Exception e) {
 					System.out.println("Kafka is not available, timed out after {} ms"+ ADMIN_CLIENT_TIMEOUT_MS);
 		            kafka_is_on = "Sorry!! Given Host "+hostPort+" not available. Kindly contact admin or try other host.";
 		            return kafka_is_on;
-				}*/
+				}
 	        } catch (Exception ex) {
 	            System.out.println("Kafka is not available, timed out after {} ms"+ ADMIN_CLIENT_TIMEOUT_MS);
 	            kafka_is_on = "Given Host "+hostPort+" not available. Kindly contact admin or try other host";

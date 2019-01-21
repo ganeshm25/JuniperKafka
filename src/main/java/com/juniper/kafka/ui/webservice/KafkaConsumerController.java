@@ -28,12 +28,7 @@ public class KafkaConsumerController {
 		try {
 				kafkaUI.setConsumerName(requestDto.getBody().get("data").get("consumer_name"));
 				kafkaUI.setTopicID(Integer.parseInt(requestDto.getBody().get("data").get("topic")));
-				kafkaUI.setClusterID(Integer.parseInt(requestDto.getBody().get("data").get("cluster")));
-				kafkaUI.setTargetType(requestDto.getBody().get("data").get("sourceType"));
-				kafkaUI.setFileName(requestDto.getBody().get("data").get("linux_file_pattern"));
-				kafkaUI.setFilePath(requestDto.getBody().get("data").get("linux_file_path"));
 				kafkaUI.setSourceID(Integer.parseInt(requestDto.getBody().get("data").get("targetSystem")));
-				
 				kafkaUIService.saveConsumerDetails(kafkaUI);
 				
 	        } catch (Exception ex) {

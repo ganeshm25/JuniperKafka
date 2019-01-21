@@ -26,7 +26,13 @@ public class KafkaTopicController {
 		
 		try {
 				kafkaUI.setTopicName(requestDto.getBody().get("data").get("kafka_topic"));
+				kafkaUI.setHostName(requestDto.getBody().get("data").get("broker_host_name"));
+				kafkaUI.setPort(requestDto.getBody().get("data").get("broker_port"));
+				kafkaUI.setUserName(requestDto.getBody().get("data").get("user"));
+				kafkaUI.setPassword(requestDto.getBody().get("data").get("password"));
 				kafkaUI.setPurpose(requestDto.getBody().get("data").get("purpose"));
+				kafkaUI.setPartitionCount(0);//(requestDto.getBody().get("data").get("partition"));
+				kafkaUI.setReplicationFactor(0);//(requestDto.getBody().get("data").get("replication"));
 				kafkaUIService.saveTopicDetails(kafkaUI);
 				
 	        } catch (Exception ex) {

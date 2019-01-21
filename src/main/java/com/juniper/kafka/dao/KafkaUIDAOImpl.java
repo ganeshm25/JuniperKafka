@@ -26,9 +26,9 @@ public class KafkaUIDAOImpl  implements KafkaUIDAO{
 	@Override
 	public String saveUIConsumer(KafkaUIDTO kafkaUIDto) {
 		String sql = "INSERT INTO JUNIPER_EXT_KAFKA_CONSUMER_MASTER " +
-				"(CONSUMER_NAME,CLUSTER_ID,TOPIC_ID,SOURCE_TYPE,FILE_PATH,FILE_NAME,SOURCE_ID,CREATED_BY,CREATED_DATE,UPDATED_BY,UPDATED_DATE) VALUES (?,?,?,?,?,?,?,?,?,?,?)" ;
+				"(CONSUMER_NAME,TOPIC_ID,SOURCE_ID,CREATED_BY,CREATED_DATE,UPDATED_BY,UPDATED_DATE) VALUES (?,?,?,?,?,?,?)" ;
 		jdbcTemplateObject.update(sql, new Object[]{
-				kafkaUIDto.getConsumerName(), kafkaUIDto.getClusterID(),kafkaUIDto.getTopicID(),kafkaUIDto.getTargetType(),kafkaUIDto.getFilePath(),kafkaUIDto.getFileName(),kafkaUIDto.getSourceID(),kafkaUIDto.getCreatedBy(),new java.sql.Timestamp(System.currentTimeMillis()),kafkaUIDto.getUpdatedBy(),new java.sql.Timestamp(System.currentTimeMillis())
+				kafkaUIDto.getConsumerName(), kafkaUIDto.getTopicID(),kafkaUIDto.getSourceID(),kafkaUIDto.getCreatedBy(),new java.sql.Timestamp(System.currentTimeMillis()),kafkaUIDto.getUpdatedBy(),new java.sql.Timestamp(System.currentTimeMillis())
 		});
 		return "success";
 	}
@@ -36,9 +36,9 @@ public class KafkaUIDAOImpl  implements KafkaUIDAO{
 	@Override
 	public String saveUITopic(KafkaUIDTO kafkaUIDto) {
 		String sql = "INSERT INTO juniper_ext_kafka_topic_master " +
-				"(kafka_topic, created_dt,purpose_id) VALUES (?, ?, ?)" ;
+				"(kafka_topic, created_dt,BROKER_HOST,BROKER_PORT,BROKER_USERNAME,BROKER_PASSWORD,purpose) VALUES (?, ?, ?, ?, ?, ?, ?)" ;
 		jdbcTemplateObject.update(sql, new Object[]{
-				kafkaUIDto.getTopicName(), new java.sql.Timestamp(System.currentTimeMillis()),kafkaUIDto.getPurpose()
+				kafkaUIDto.getTopicName(), new java.sql.Timestamp(System.currentTimeMillis()),kafkaUIDto.getHostName(),kafkaUIDto.getPort(),kafkaUIDto.getUserName(),null,kafkaUIDto.getPurpose()
 		});
 		return "success";
 	}
