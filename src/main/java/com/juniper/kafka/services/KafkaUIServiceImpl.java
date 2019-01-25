@@ -1,27 +1,14 @@
 package com.juniper.kafka.services;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Properties;
 
 import org.apache.kafka.clients.admin.AdminClient;
-import org.apache.kafka.clients.admin.CreateTopicsResult;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.google.cloud.ServiceOptions;
-import com.google.cloud.pubsub.v1.Publisher;
-import com.google.cloud.pubsub.v1.TopicAdminClient;
-import com.google.protobuf.ByteString;
-import com.google.pubsub.v1.ProjectTopicName;
-import com.google.pubsub.v1.PubsubMessage;
-import com.google.pubsub.v1.Topic;
-import com.google.pubsub.v1.TopicName;
-import com.google.pubsub.v1.TopicNames;
 import com.juniper.kafka.dao.KafkaUIDAO;
 import com.juniper.kafka.dto.KafkaUIDTO;
 
@@ -45,31 +32,23 @@ public class KafkaUIServiceImpl implements KafkaUIService {
 	public String saveTopicDetails(KafkaUIDTO kafkatopicUIDTO) {
 		Properties properties = null;
 		AdminClient adminClient = null;
-		NewTopic newTopic = null;
-		List<NewTopic> newTopics = null;
-		HashMap<String,Object> clusterDetail = null;
+		Map<String,Object> clusterDetail = null;
 		try {
 			clusterDetail = kafkaUIDAO.fetchCluster(kafkatopicUIDTO.getClusterID());
 			properties = new Properties();
-			properties.put("bootstrap.servers", clusterDetail.get("zookeeper_host_name")+":"+clusterDetail.get("zookeeper_host_port"));
-			properties.put("enable.auto.commit", true);
-			properties.put("auto.commit.interval.ms", 100);
+			properties.put("bootstrap.servers", clusterDetail.get("zookeeper_host_name")+":"+clusterDetail.get("zookeeper_port_number"));
 			properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 			properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 			adminClient = AdminClient.create(properties);
-			newTopic = new NewTopic(kafkatopicUIDTO.getTopicName(), 0, (short)0); //new NewTopic(topicName, numPartitions, replicationFactor)
-			newTopics = new ArrayList<NewTopic>();
-			newTopics.add(newTopic);
-			CreateTopicsResult ctr =  adminClient.createTopics(newTopics);
+	       adminClient.createTopics(Arrays.asList(new NewTopic(kafkatopicUIDTO.getTopicName(), 1, (short)1)));
 			kafkaUIDAO.saveUITopic(kafkatopicUIDTO);
 		}catch(Exception e) {
-			
+			e.printStackTrace();
 		}finally {
 			if(adminClient!=null) {
 				adminClient.close();
 			}
 		}
-		
 		return "success";
 	}
 
@@ -82,16 +61,14 @@ public class KafkaUIServiceImpl implements KafkaUIService {
 
 	@Override
 	public String savePubSubTopicDetails(KafkaUIDTO kafkatopicUIDTO) {
-		
-		try (TopicAdminClient topicAdminClient = TopicAdminClient.create()) {
-		     
-		      ProjectTopicName topicName = ProjectTopicName.of(kafkatopicUIDTO.getProjectId(), kafkatopicUIDTO.getTopicName());
-		      topicAdminClient.createTopic(topicName);
-		      
-		    } catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		try{
+			
+			kafkaUIDAO.savePubSubTopic(kafkatopicUIDTO);
+			
+		}catch(Exception e){
+			System.out.println("in exception block");
+			e.printStackTrace();
+		}
 		return "success";
 	}
 	

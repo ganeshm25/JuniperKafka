@@ -1,5 +1,4 @@
 package com.juniper.kafka.dao;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,9 +38,9 @@ public class KafkaUIDAOImpl  implements KafkaUIDAO{
 	@Override
 	public String saveUITopic(KafkaUIDTO kafkaUIDto) {
 		String sql = "INSERT INTO juniper_ext_kafka_topic_master " +
-				"(kafka_topic, created_dt,BROKER_HOST,BROKER_PORT,BROKER_USERNAME,BROKER_PASSWORD,purpose) VALUES (?, ?, ?, ?, ?, ?, ?)" ;
+				"(kafka_topic, created_dt,BROKER_HOST,BROKER_PORT,BROKER_USERNAME,BROKER_PASSWORD,purpose,topic_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)" ;
 		jdbcTemplateObject.update(sql, new Object[]{
-				kafkaUIDto.getTopicName(), new java.sql.Timestamp(System.currentTimeMillis()),kafkaUIDto.getHostName(),kafkaUIDto.getPort(),kafkaUIDto.getUserName(),null,kafkaUIDto.getPurpose()
+				kafkaUIDto.getTopicName(), new java.sql.Timestamp(System.currentTimeMillis()),kafkaUIDto.getHostName(),kafkaUIDto.getPort(),kafkaUIDto.getUserName(),null,kafkaUIDto.getPurpose(),"A"
 		});
 		return "success";
 	}
@@ -60,9 +59,20 @@ public class KafkaUIDAOImpl  implements KafkaUIDAO{
 
 
 	@Override
-	public HashMap<String, Object> fetchCluster(int clusterId) {
+	public Map<String, Object> fetchCluster(int clusterId) {
 		String sql = "select zookeeper_host_name,zookeeper_port_number from juniper_ext_kafka_cluster_master where KAFKA_CONN_SEQUENCE="+clusterId;
 		Map<String, Object> result=  jdbcTemplateObject.queryForMap(sql);
-		return (HashMap<String, Object>) result;
+		return (Map<String, Object>) result;
+	}
+	
+	@Override
+	public String savePubSubTopic(KafkaUIDTO kafkaUIDto) {
+		String sql = "INSERT INTO JUNIPER_EXT_KAFKA_PUB_SUB_TOPIC" +
+				"(TOPIC_NAME, SERVICE_ACCOUNT, PROJECT_ID, CREATED_DATE, UPDATED_DATE) VALUES (?,?,?,?,?)" ;
+		
+		jdbcTemplateObject.update(sql, new Object[]{
+				kafkaUIDto.getTopicName(), kafkaUIDto.getServiceAccount(), kafkaUIDto.getProjectId(), new java.sql.Timestamp(System.currentTimeMillis()), new java.sql.Timestamp(System.currentTimeMillis())
+		});
+		return "success";
 	}
 }

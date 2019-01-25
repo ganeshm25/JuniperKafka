@@ -1,6 +1,7 @@
 package com.juniper.kafka.dao;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import com.juniper.kafka.dto.KafkaUIDTO;
 
@@ -15,6 +16,8 @@ public interface KafkaUIDAO {
 	
 	public String saveUITopic(KafkaUIDTO kafkaUIDto);
 	
-	public HashMap<String,Object> fetchCluster(int clusterId);
+	public Map<String, Object> fetchCluster(int clusterId);
+	
+	public String savePubSubTopic(KafkaUIDTO kafkaUIDto);
 
 }
