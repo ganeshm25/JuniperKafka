@@ -28,9 +28,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="src/main/resources/lib/ojdbc7.jar"/>
-	<classpathentry kind="lib" path="lib/connect-api-2.1.0.jar"/>
-	<classpathentry kind="lib" path="lib/KafkaJdbcConnect.jar"/>
 	<classpathentry kind="src" path=".apt_generated">
 		<attributes>
 			<attribute name="optional" value="true"/>

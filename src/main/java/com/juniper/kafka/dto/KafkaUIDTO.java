@@ -23,7 +23,31 @@ public class KafkaUIDTO {
 	private String fileName;
 	private String createdBy;
 	private String updatedBy;
+	private String projectId;
+	private String brokerId;
+	private String brokerPort;
 	
+	private String serviceAccount;
+	
+	
+	public String getBrokerId() {
+		return brokerId;
+	}
+	public void setBrokerId(String brokerId) {
+		this.brokerId = brokerId;
+	}
+	public String getBrokerPort() {
+		return brokerPort;
+	}
+	public void setBrokerPort(String brokerPort) {
+		this.brokerPort = brokerPort;
+	}
+	public String getProjectId() {
+		return projectId;
+	}
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
+	}
 	public String getHostName() {
 		return hostName;
 	}
@@ -143,6 +167,12 @@ public class KafkaUIDTO {
 	}
 	public void setUpdatedBy(String updatedBy) {
 		this.updatedBy = updatedBy;
+	}
+	public String getServiceAccount() {
+		return serviceAccount;
+	}
+	public void setServiceAccount(String serviceAccount) {
+		this.serviceAccount = serviceAccount;
 	}
 	
 	

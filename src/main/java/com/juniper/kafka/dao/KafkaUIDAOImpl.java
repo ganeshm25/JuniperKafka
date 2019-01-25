@@ -1,4 +1,7 @@
 package com.juniper.kafka.dao;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -45,11 +48,21 @@ public class KafkaUIDAOImpl  implements KafkaUIDAO{
 
 	@Override
 	public String onBoardKafka(KafkaUIDTO kafkaUIDto) {
-		String sql = "INSERT INTO juniper_ext_kafka_cluster_master " +
-				"(CLUSTER_NAME, ZOOKEEPER_HOST_NAME, ZOOKEEPER_PORT_NUMBER, USERNAME, CREATED_DATE, UPDATED_DATE) VALUES (?,?,?,?,?,?)" ;
-		 jdbcTemplateObject.update(sql, new Object[]{
-				kafkaUIDto.getClusterName(), kafkaUIDto.getHostName(), kafkaUIDto.getPort(),kafkaUIDto.getUserName(), new java.sql.Timestamp(System.currentTimeMillis()), new java.sql.Timestamp(System.currentTimeMillis())
+		String sql = "INSERT INTO juniper_ext_kafka_cluster_master" +
+				"(CLUSTER_NAME, ZOOKEEPER_HOST_NAME, ZOOKEEPER_PORT_NUMBER, CREATED_DATE, UPDATED_DATE,PROJECT_SEQUENCE) VALUES (?,?,?,?,?,?)" ;
+		
+		
+		jdbcTemplateObject.update(sql, new Object[]{
+				kafkaUIDto.getClusterName(), kafkaUIDto.getHostName(), kafkaUIDto.getPort(), new java.sql.Timestamp(System.currentTimeMillis()), new java.sql.Timestamp(System.currentTimeMillis()),kafkaUIDto.getProjectId()
 		});
 		return "success";
+	}
+
+
+	@Override
+	public HashMap<String, Object> fetchCluster(int clusterId) {
+		String sql = "select zookeeper_host_name,zookeeper_port_number from juniper_ext_kafka_cluster_master where KAFKA_CONN_SEQUENCE="+clusterId;
+		Map<String, Object> result=  jdbcTemplateObject.queryForMap(sql);
+		return (HashMap<String, Object>) result;
 	}
 }
