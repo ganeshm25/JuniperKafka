@@ -75,4 +75,15 @@ public class KafkaUIDAOImpl  implements KafkaUIDAO{
 		});
 		return "success";
 	}
+	@Override
+	public String saveDataFeedDetails(KafkaUIDTO kafkaUIDto) {
+		String sql = "INSERT INTO JUNIPER_EXT_KAFKA_DATA_FEED" +
+				"(FEED_NAME, SERVICE_ACCOUNT, CLUSTER_NAME, KAFKA_TOPIC, PROJECT,PUB_SUB_TOPIC,DATA_SET,CREATED_DATE,UPDATED_DATE) VALUES (?,?,?,?,?,?,?,?,?)" ;
+		
+		jdbcTemplateObject.update(sql, new Object[]{
+				kafkaUIDto.getFeedName(),kafkaUIDto.getServiceAccount(),kafkaUIDto.getClusterName(), kafkaUIDto.getTopicName(), kafkaUIDto.getProjectId(), kafkaUIDto.getPubSubTopicId(),kafkaUIDto.getDataSet(),new java.sql.Timestamp(System.currentTimeMillis()), new java.sql.Timestamp(System.currentTimeMillis())
+		});
+		return "success";
+	}
+	
 }

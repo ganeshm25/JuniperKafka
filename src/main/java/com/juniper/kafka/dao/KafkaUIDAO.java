@@ -19,5 +19,5 @@ public interface KafkaUIDAO {
 	public Map<String, Object> fetchCluster(int clusterId);
 	
 	public String savePubSubTopic(KafkaUIDTO kafkaUIDto);
-
+	public String saveDataFeedDetails(KafkaUIDTO kafkaUIDto);
 }

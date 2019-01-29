@@ -85,6 +85,20 @@ public class KafkaUIServiceImpl implements KafkaUIService {
 		return "success";
 	}
 	
+	
+	
+	@Override
+	public String saveDataFeedDetails(KafkaUIDTO kafkatopicUIDTO) {
+		try{
+			kafkaUIDAO.saveDataFeedDetails(kafkatopicUIDTO);
+			
+		}catch(Exception e){
+			System.out.println("in exception block");
+			e.printStackTrace();
+		}
+		return "success";
+	}
+	
 	/*
 	 * 
 	 * (non-Javadoc)

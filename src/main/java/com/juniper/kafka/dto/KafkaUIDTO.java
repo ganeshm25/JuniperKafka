@@ -26,10 +26,21 @@ public class KafkaUIDTO {
 	private String projectId;
 	private String brokerId;
 	private String brokerPort;
+	private String clusterId;
+	 private String serviceAccount;
+	 private String pubSubTopicId;
+	 private String dataSet;
+	 private String feedName;
+	 
 	
-	private String serviceAccount;
 	
 	
+	public String getFeedName() {
+		return feedName;
+	}
+	public void setFeedName(String feedName) {
+		this.feedName = feedName;
+	}
 	public String getBrokerId() {
 		return brokerId;
 	}
@@ -174,8 +185,22 @@ public class KafkaUIDTO {
 	public void setServiceAccount(String serviceAccount) {
 		this.serviceAccount = serviceAccount;
 	}
-	
-	
-	
-  
+	public String getClusterId() {
+		return clusterId;
+	}
+	public void setClusterId(String clusterId) {
+		this.clusterId = clusterId;
+	}
+	public String getPubSubTopicId() {
+		return pubSubTopicId;
+	}
+	public void setPubSubTopicId(String pubSubTopicId) {
+		this.pubSubTopicId = pubSubTopicId;
+	}
+	public String getDataSet() {
+		return dataSet;
+	}
+	public void setDataSet(String dataSet) {
+		this.dataSet = dataSet;
+	}
 }

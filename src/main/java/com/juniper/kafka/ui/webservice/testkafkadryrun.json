@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "psyched-thunder-226206",
+  "private_key_id": "c114d11293ba15768a1cca8d97cc966acbe0e990",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCPjGevAVu+jb7p\nhjybt1MG/1j6kRjCR5+PxX8sHVF8Js3XgdzyjWvE11xnqnlLjSBit3u96q2vSVIX\nY1kU3q81QcsMNSF8ZJwShjoagtYplXOpJo3gkkqU1ZLX9/rOdYkblV4nLvzdkcij\nXflDzBLIKfM+UxfcOjEZ0/27LRq80/FBc/GEeq3ki2MUQ4hB7MIo3t0qSuYurXEV\nc/P1tsU/pLnPNarJIObcS6njUHl40MmrF34/ytfKVeLIHIr51kmGBGlCXuTCKRDH\n8q8E1jd1uIqrlGREufXFiQWV10+U1AqcCndSrZHvYwxllojaWnbvp+7fsSDeYHfK\nGKPjNrZfAgMBAAECggEAAWZqxhFkhhTdcJ5w9BcM2Q8GHL64vkxZVg5xd+PhUGCt\nT68u97HbBAesGXOKmbekQgVs6fFI0fwMSblPIrdfsuYTx06zwOhws6cmse0Zjm/f\nhoRsJdPHcaQtOaxr5pxm3FbP0EbSpVnJDZVBDrqfnd9eEmGLfgf83c+fgRymtU8o\nJO245onlZEbhnRqkyTmW4mKvb5R78HFOMB4MUMob6uTZNzROZ6EiIZPMeKxB+WIL\nr3hPcy/0Xfz2HUUZVwoY3zAqzzWHGGXMxm36DShDuGwvmnui8sSW7NJOWlRbZ0ED\nA2JSi5dAIZJnPXJp3u1bIXpX+lVEr3UYCVicTtL1IQKBgQDDs0GdvzBq6KzElH7s\nr08TvDrU6aJax6KRr+jwsB4ynxw4bX1WnVX8o5iLQVVZ6Ymjind1ckguU62X6BvN\ndOZvdyukoE6Y9hyvQCsJLqORrDXG3rAwyvGt3d1Qy/zlUOT8LUDo9M9smqgfUMev\n39n6A/n/EmlldiVNeq1AYxkjHQKBgQC7x3EIsUQzshFySih021tQjp2JG4YiQqi8\n3Uc8IL10v6Ar0EobfGXsqQc0jS7t4ZzopPPFZkJwnYjaKV6ImQb0xvs2TfvUKEkb\nl1asl27aDsE7hb8aKYwCIiGftTkzT/FaNYqgLwLIZ+Z+7GqD2xeImgcQ2jzpQRIJ\nSv7AUpeqqwKBgBoawTfvlt/L5a/bNwsPX3b8dsSL3bJKSu8wDdx9Qany+2qzgDKb\njirDD8gTkPULZ+a+w6yQ7/vuAYvv1DWV0F8yAEpXb+SLf8wIvTTeWcdGt22tqsb3\na0GMBMeQTk2wersAtlXcwgZ0otR6jAhzzbnB6gkSRajZF6S8JnweO+4pAoGADOwW\nrUB1rxEL/k94JUKLMCoAUVUhj+4CaqzXoB2orAYb4af90ZJn+TdQlZ85oYkrIR9o\n3ybAX7uXlVvPc5sETYf79aq8L8dt8IYjotDxAfSN+6iilAxT5DmxEqqH+y3/L/QL\nTCawDFaKGCXw1o4XOoFPByvdkTe3JAiTK20Dnu0CgYEAlLfBlGWjx/xQ0r3sjali\nw1W7kFETgT8MqZ2Zi3Xun9eNzaYtckbWHokho+agnRCu6kOAjfWDE3dBn5vrzgnS\nPL01OYLY/F0aocq/KO0Rl3J6eO9dgmgVvN1Xr7MRTN4C6sAh3DAcNF4ApAqeBN/E\nzKkkztmPNCb12o7Z5xrq0oo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "testkafka1@psyched-thunder-226206.iam.gserviceaccount.com",
+  "client_id": "100067146486758510231",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/testkafka1%40psyched-thunder-226206.iam.gserviceaccount.com"
+}
