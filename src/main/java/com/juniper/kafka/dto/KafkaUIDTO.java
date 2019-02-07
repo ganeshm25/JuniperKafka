@@ -27,14 +27,41 @@ public class KafkaUIDTO {
 	private String brokerId;
 	private String brokerPort;
 	private String clusterId;
-	 private String serviceAccount;
-	 private String pubSubTopicId;
-	 private String dataSet;
-	 private String feedName;
-	 
+	private String serviceAccount;
+	private String pubSubTopicId;
+	private String dataSet;
+	private String feedName;
+	private String gcProjectId;
+	private String gcpAccountName;
+	private String pubSubTopicName;
+	private String pubSubSubscriptionName;
 	
 	
 	
+	public String getPubSubSubscriptionName() {
+		return pubSubSubscriptionName;
+	}
+	public void setPubSubSubscriptionName(String pubSubSubscriptionName) {
+		this.pubSubSubscriptionName = pubSubSubscriptionName;
+	}
+	public String getPubSubTopicName() {
+		return pubSubTopicName;
+	}
+	public void setPubSubTopicName(String pubSubTopicName) {
+		this.pubSubTopicName = pubSubTopicName;
+	}
+	public String getGcProjectId() {
+		return gcProjectId;
+	}
+	public void setGcProjectId(String gcProjectId) {
+		this.gcProjectId = gcProjectId;
+	}
+	public String getGcpAccountName() {
+		return gcpAccountName;
+	}
+	public void setGcpAccountName(String gcpAccountName) {
+		this.gcpAccountName = gcpAccountName;
+	}
 	public String getFeedName() {
 		return feedName;
 	}

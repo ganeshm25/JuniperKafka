@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "testrazak",
+  "private_key_id": "523ecb8ca86f9f53577864aa71128f93290b3abe",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCyPyF3HEsuEJHv\nSTGtV4d7p4UXVXsMHegIgH96cfY46V/cK1VPonlGO5YW444GUJBqqGlR3M69qGNk\n750Ddb6Ypl/YgExx5WFdvALcf9WxzmE+VHq2Acpbar5xRgU+eUttF050XoYy5p30\nqPaXCdN/65oLbQCrrHDmNCSK455TFRPkPqDq+/oto7NoS949Zm9f5nCANCYGC3Hr\nffP2xjwJbpnPAPJ0FL2kCbL5FmqrNbDvxsxaz4TL2b7uZqsbfA1I1gGJUlJdp1gr\nZNFadzhz9t9yNaEmLC8TTGqOYppdh/Rs3V1cQQsBXgdtgq2v/Olz0XMYDiyNSZDV\nkngu/2TjAgMBAAECggEAHO78JtexaRn9zl/3uoxi7NK9sGggRVBqH03YeORHKb18\nNtgpN3gyA7wID3wYTEnHP4D0jk9vlxVeg6kU4tW56WaBrWTvbmzjuAbyV0pAQmYJ\nSUhbnkVpIcYQgYDyY03mIqBYtwa29aE+ElOw/3B0DqeMWv7Hz+t5whcZuBqIUzJA\nM8kGX5cWXXC4PqqQpcPe5SRNN98nU/He9hL6TUXkR6vQ26MELYd8UO3z5Cf0utBy\nUpNS0bsJM6lO0veY+OnDiG9c8v2ZotZ60T8VHoE4YJDA1bn0b4bPSTkPmddfIvMm\n+UyWyhJpe1PZI6428YTayi9Ws64nNrjlhhZ7nDXMoQKBgQDqwII6zeGUF6QgHN+i\nBmt4q+v97+yCCaWvJEfKrt+ztVhjpUha8BrBUT1JfzpZPdbtOlrMU3v2MevLjpWT\ntpiILKkhr16lUvGBO5bI2i+0m6EzBL0ntpqP82soY+YYmiUTBhRK2vHRTzBaOC0R\nVFewTJguWICsGy9KPXFFShX6YQKBgQDCYVKyV7RjJTmZE6mRS05jAQ0wXt3s4eC8\nVZLKrp1DdHaFK9RoGIJq+iSl6Chzbjt0ccHwtNVdkMbc0sxAfNXGyvPos9lPejKJ\ne/9vug/E1wEEiyWd+VCi7g74BKhuyvasVj5lSEzhv00znWFCSKGmefMcn+VIZyij\n5mHycgLNwwKBgA5bR5uhC7Kq33a3TVXzXo86tGwLSEOLo35akalrmHK9HHK7oPku\nxfQcq8ra5Q6gIYzQjM0CLgqYcvs39R3bhOiPEqjkuL0TnYFxy37tGQ3Klskv+QF8\nwWccU+lccq3+f1XygTsyuKc8WJCr7tWoetRlWsk60GO2JeY8a7j5Fu8BAoGAa4EU\nEZq8I5F095qOT9NMeSkduEDfkKGkf8T8OKi2RZZl7mU9Ro03pB7QoglyRdUTgOVh\nk9UPpH3r3jmfyZLBUP7yQyMk7vXweWVg8tP+4Kjg4ThsB6DZ3iK3mKhK12vdXZcd\nTzrbeocpFYDXR6eP79jGgnBUiOS072D9ju9Laa0CgYBtt/M+upkO0CSn91Xq8VCH\nVSPgp/UQRh58keOczOUee+SjsU/IE+o5tA1ZI6Q5W7GuRKjeZVxAaK15DA90YJkv\nqFURtQhyDs6EZU3qc1lN5PpTx3YYV9l3PEWUkfH0JqTiB8t15HqvmcjywWJmLSDo\n8l+4KcNSNtFfFA/5RNSHBA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "kafkatest@testrazak.iam.gserviceaccount.com",
+  "client_id": "116691803629018888504",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kafkatest%40testrazak.iam.gserviceaccount.com"
+}
